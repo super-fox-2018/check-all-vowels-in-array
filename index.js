@@ -6,9 +6,9 @@ function generateBoard(row, col) {
     let rows = [];
 
     for (let j = 0; j < col; j++) {
-      //var randomChar = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
-      //rows.push(randomChar);
-      rows.push('A');
+      var randomChar = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+      rows.push(randomChar);
+      //rows.push('A');
     }
     output.push(rows)
   }
@@ -55,6 +55,17 @@ function checkVowelsArray(arr) {
 }
 
 console.log(checkVowelsArray(generateBoard(5,4)))
+
+// Test case with all index are vowels
+var vowel = [ ['A', 'E', 'I', 'U', 'O'],
+              ['A', 'E', 'I', 'U', 'O'],
+              ['A', 'E', 'I', 'U', 'O'],
+              ['A', 'E', 'I', 'U', 'O'],
+              ['A', 'E', 'I', 'U', 'O']
+            ]
+console.log(checkVowelsArray(vowel));
+
+// Test Case dari soal
 var board = [ ['A', 'X', 'C', 'Y'],
               ['E', 'O', 'O', 'S'],
               ['I', 'U', 'I', 'N'],

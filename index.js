@@ -13,8 +13,6 @@ function checkAllVowelsInArray (row, col) {
             board[x].push(alphabet[(Math.floor(Math.random()*26))])
         }
     }
-    console.log(board)
-   
    
     for(var a=0; a<row-1; a++) {
         for(var b=0; b<col-1; b++) {

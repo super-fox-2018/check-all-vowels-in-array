@@ -10,32 +10,40 @@ function generateTable(row, col) {
   return array;
 }
 
-function checkVowels(array) {
-  let vowelCounter = 0;
+function check2x2(array) {
   let vowelBox = 0;
   let vowel = 'aeiou';
   for (let i = 0; i < array.length - 1; i++) {
     for (let j = 0; j < array[i].length - 1; j++) {
-      for (let k = 0; k < vowel.length; k++) {
-        if (array[i][j] === vowel[k]) {
-          vowelCounter = 0;
-          for (let l = 0; l < vowel.length; l++) {
-            if (array[i][j + 1] === vowel[l]) {
-              vowelCounter++;
-            }
-            if (array[i + 1][j + 1] === vowel[l]) {
-              vowelCounter++;
-            }
-            if (array[i + 1][j] === vowel[l]) {
-              vowelCounter++;
-            }
-          }
-          if (vowelCounter === 3) {vowelBox++;}
-        }
+      let topLeft = array[i][j];
+      let topRight = array[i][j + 1];
+      let bottomLeft = array[i + 1][j];
+      let bottomRight = array[i + 1][j + 1];
+      let twoBytwo = topLeft + topRight + bottomLeft + bottomRight;
+      console.log(twoBytwo);
+      if (checkVowels(twoBytwo) === true) {
+        vowelBox += 1;
       }
     }
   }
   return vowelBox;
 }
 
-console.log(checkVowels(generateTable(5, 4)));
+function checkVowels(str) {
+  let vowels = ['a', 'e', 'i', 'o', 'u'];
+  let counter = 0;
+  for (var i = 0; i < str.length; i++) {
+    for (var j = 0; j < vowels.length; j++) {
+      if (str[i].toLowerCase() === vowels[j].toLowerCase()) {
+        counter += 1;
+      }
+    }
+  }
+  if (counter === str.length) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(check2x2(generateTable(5, 4)));
